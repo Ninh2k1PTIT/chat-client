@@ -4,17 +4,9 @@
  * and open the template in the editor.
  */
 package view;
-
-import com.google.gson.Gson;
 import controller.MyThread;
-import static controller.MyThread.dos;
 import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import javax.swing.DefaultListModel;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import model.*;
+
 
 /**
  *
@@ -30,120 +22,8 @@ public class ChatRoomForm extends javax.swing.JFrame {
     public ChatRoomForm() {
         initComponents();
         lbName.setText(MyThread.name);
-//        showRoom();
     }
 
-//    //Hiển thị list room
-//    public void showRoom(){
-//        for(Room i : MyThread.listRoom){
-//            cbxRoom.addItem(i);
-//        }
-//    }
-//    
-//    //Hiển thị list user in room
-//    public void showUIR(){
-//        cbxUIR.removeAllItems();
-//        for(UserInRoom i : MyThread.listUIR){
-//            cbxUIR.addItem(i);
-//        }
-//    }
-//    
-//    //Hiển thị list page
-//    public void showPage(Integer pageSize){
-//        listPage.removeAll();
-//        DefaultListModel m2 = new DefaultListModel();
-//        for(Integer i = 1; i <= pageSize; i++){
-//           m2.addElement(i);
-//        }
-//        listPage.setModel(m2);
-//    }
-//    
-//    //Hiển thị khung lịch sử chat room
-//     public void showMessage(List<Chat> listChat){
-//        if(listChat == null){
-//            return;
-//        }
-//        listFile.removeAll();
-//        Collections.reverse(listChat);
-//        DefaultListModel m1 = new DefaultListModel();
-//        for(Chat i : listChat){
-//            m1.addElement(i);
-//        }
-//        listFile.setModel(m1);
-//    }
-//    
-//    //Thêm chat mới vào khung chat
-//    public void addMessage(ChatMsg chatMsg, Long time){
-//        SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
-//        String t= f.format(time);
-//        Room r = (Room)cbxRoom.getSelectedItem();
-//        //Khi đang chat với người gửi
-//        if(Long.parseLong(chatMsg.getToRoomId()+"") == Long.parseLong(r.getId()+"")){
-//            try{
-//                //Gửi data lên cho server
-//                Room selectRoom = (Room)cbxRoom.getSelectedItem();
-//                UserInRoom fromUser = new UserInRoom();
-//                fromUser.setUserId(MyThread.id);
-//                ChatRoom chatRoom = new ChatRoom(fromUser, selectRoom.getId(), 1);
-//                Gson gson = new Gson();
-//                String dataJson = gson.toJson(chatRoom);
-//                RawData rawData = new RawData("GET_ROOM_CHAT", MyThread.id, new Date().getTime(), dataJson);
-//                String rawData1 = gson.toJson(rawData);
-//                MyThread.dos.writeUTF(rawData1);
-//                MyThread.dos.flush();
-//                System.out.println(rawData1);
-//            } catch(IOException e){
-//                e.printStackTrace();
-//            }
-//        } else{
-//            //Khi không chat với người gửi
-//            txtNotify.append("(" + t + "): " + chatMsg.getFromUser().getNameUser() +
-//                        " send new message to room\n");
-//        }
-//    }
-//    
-//    //Cập nhật phòng
-//    public void addRoom(RoomAction roomAction){
-//        Room room = new Room(roomAction.getRoomId(), roomAction.getNameRoom());
-//        cbxRoom.addItem(room);
-//    }
-//    
-//    //Cập nhật user vừa thêm
-//    public void addUser(RoomAction roomAction){
-//        cbxUIR.removeAllItems();
-//        for(UserInRoom i : roomAction.getUserInRoomList()){
-//            cbxUIR.addItem(i);
-//        }
-//    }
-//    
-//    //Cập nhật user vừa xoá
-//    public void deleteUser(RoomAction roomAction){
-//        List<UserInRoom> listUIR = roomAction.getUserInRoomList();
-//        List<UserInRoom> listAll = MyThread.chatRoom.getListUserInRoom();
-//        for(int i = 0; i < listUIR.size(); i++){
-//            for(int j = 0; j < listAll.size(); j++){
-//                if(listAll.get(j).getUserId() == listUIR.get(i).getUserId()){
-//                    listAll.remove(listAll.get(j));
-//                }
-//            }
-//        }
-//        cbxUIR.removeAllItems();
-//        for(UserInRoom i : listAll){
-//            cbxUIR.addItem(i);
-//        }
-//    }
-//    
-//    //Cập nhật tiến độ tải file
-//    public void updatePercent(Integer percent) throws InterruptedException{
-//        percentBar.setValue((int)percent);
-//        percentBar.setString(percent + "%");
-//        Thread.sleep(20);
-//    }
-//    
-//    //Đặt lại thanh progress
-//    public void resetPercent(){
-//        percentBar.setValue(0);
-//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

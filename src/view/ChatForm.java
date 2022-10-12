@@ -5,13 +5,8 @@
  */
 package view;
 
-import com.google.gson.Gson;
 import controller.MyThread;
-import static controller.MyThread.dos;
 import java.io.*;
-import java.util.*;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import model.*;
 
 /**
@@ -235,7 +230,6 @@ public class ChatForm extends javax.swing.JFrame {
 
     private void btRoomChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRoomChatActionPerformed
         // TODO add your handling code here:
-//        chatRoomForm = new ChatRoomForm();
         chatRoomForm.setVisible(true);
         MyThread.chat.setVisible(false);
     }//GEN-LAST:event_btRoomChatActionPerformed
